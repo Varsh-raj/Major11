@@ -1,0 +1,45 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #4caf50; /* Green color for agricultural theme */
+    color: #fff;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .nav-links a:hover {
+    color: #f1f1f1;
+  }
+  
+  .auth-button button {
+    background-color: #fff;
+    color: #4caf50;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .auth-button button:hover {
+    background-color: #e1e1e1;
+  }
+  

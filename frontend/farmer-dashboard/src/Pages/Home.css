@@ -1,0 +1,9 @@
+/* Home.css */
+
+.product-cards-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
