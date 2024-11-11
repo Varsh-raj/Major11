@@ -62,90 +62,42 @@ async function handleUserRegistration(req, res) {
         return res.status(500).send('Server error');
     }
 }
-
-// // Profile Update Handler
-// const updateProfile = async (req, res) => {
-//     try {
-//       console.log("Entered updateProfile function");  // This should always print
-  
-//       if (!req.user) {
-//         console.log("No user data found in request");  // Check if user is properly set
-//         return res.status(401).json({ msg: 'User not authenticated' });
-//       }
-  
-//       console.log("Decoded user from token:", req.user);  // Log the decoded token
-//       const userId = req.user.objId;
-//       console.log("User ID from token:", userId);
-      
-//       const user = await User.findById(userId);
-//       if (!user) {
-//         console.log("User not found");  // If the user is not found in DB
-//         return res.status(404).json({ msg: 'User not found' });
-//       }
-  
-//       // Prepare the update data
-//       const updatedUserData = {
-//         name: req.body.name || user.name,
-//         email: req.body.email || user.email,
-//         profile: req.file ? req.file.filename : user.profile,  // Accessing uploaded file
-//         phone: req.body.phone || user.phone,
-//         address: req.body.address || user.address,
-//         bio: req.body.bio || user.bio,
-//       };
-  
-//       console.log("Updated user data:", updatedUserData);  // Log the data being updated
-  
-//       // Update the user in the database
-//       const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, { new: true });
-  
-//       // Respond with the updated user info
-//       res.json(updatedUser);
-  
-//     } catch (error) {
-//       console.error("Error in updateProfile:", error);
-//       res.status(500).json({ msg: 'Server error' });
-//     }
-//   };
 const updateProfile = async (req, res) => {
-    try {
-      const userId = req.user.objId;
-      const user = await User.findById(userId);
-  
-      if (!user) {
-        return res.status(404).json({ msg: 'User not found' });
-      }
-  
-      let profilePath = user.profile;  // Default to existing profile path
-  
-      // Check if the profile image is uploaded
-      if (req.files && req.files.profile) {
-        const profileImage = req.files.profile[0];  // Access the uploaded file
-        profilePath = profileImage.path;  // Save the new profile image path
-      }
-  
-      // Prepare the update data
-      const updatedUserData = {
-        name: req.body.name || user.name,
-        email: req.body.email || user.email,
-        profile: profilePath,
-        phone: req.body.phone || user.phone,
-        bio: req.body.bio || user.bio,
-      };
-  
-      // Update the user in the database
-      const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, { new: true });
-  
-      res.json(updatedUser);  // Send updated user data as response
-    } catch (error) {
-      console.error("Error in updateProfile:", error);
-      res.status(500).json({ msg: 'Server error' });
+  try {
+    const userId = req.user.objId;
+    console.log("User ID:", userId);
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
     }
-  };
+
+    // Check if there's a new profile image uploaded
+    const profilePath = req.file ? req.file.path : user.image; // Fallback to existing profile path if no new file
+      console.log("image " , profilePath);
+    // Prepare the updated user data
+    const updatedUserData = {
+      name: req.body.name || user.name,
+      email: req.body.email || user.email,
+      profile: profilePath,
+      phone: req.body.phone || user.phone,
+      bio: req.body.bio || user.bio,
+    };
+
+    // Update the user in the database
+    const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, { new: true });
+    res.json(updatedUser); // Send updated user data as response
+  } catch (error) {
+    console.error("Error in updateProfile:", error);
+    res.status(500).json({ msg: 'Server error' });
+  }
+};
+
   
 // Delete Profile Handler
 const deleteProfile = async (req, res) => {
   try {
-    const userId = req.user._id; // Get user ID from decoded JWT
+    const userId = req.user.objId; // Get user ID from decoded JWT
 
     // Find and delete the user from the database
     console.log("v" ,userId);

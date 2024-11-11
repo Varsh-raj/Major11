@@ -46,8 +46,7 @@ const app = express();
 // Middleware to serve static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// File upload middleware (multer)
-app.use(multer);
+ 
 
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
