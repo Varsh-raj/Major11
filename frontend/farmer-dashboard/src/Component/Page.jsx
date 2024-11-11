@@ -5,7 +5,7 @@ import "./Page.css"; // Consolidated CSS file for all components
 const Page = () => {
   return (
     <>
-      <Header /> {/* Including Header component */}
+      <Header />  
       <main>
         {/* Hero Section */}
         <section className="hero">
