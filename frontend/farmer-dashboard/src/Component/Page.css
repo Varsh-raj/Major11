@@ -276,3 +276,28 @@
     }
   }
   
+  .filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .filters label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .filters select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: all 0.3s ease;
+  }
+  
+  .filters select:focus {
+    border-color: #333;
+  }
+  
+  

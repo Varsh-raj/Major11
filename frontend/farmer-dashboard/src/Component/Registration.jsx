@@ -1,5 +1,6 @@
 // Registration.jsx
 import React, { useState } from 'react';
+import Header from "./Header";
 import './Registration.css'; // Import the CSS file
 
 const Registration = () => {
@@ -37,6 +38,8 @@ const Registration = () => {
   };
 
   return (
+    <>
+      <Header />
     <section id="registration-form">
       <h2>Farmer Registration</h2>
       <form id="regForm" onSubmit={handleSubmit}>
@@ -118,6 +121,7 @@ const Registration = () => {
         <button type="submit" className="btn-register">Register</button>
       </form>
     </section>
+    </>
   );
 };
 

@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import "./Page.css"; // Consolidated CSS file for all components
 
 const Page = () => {
+  const [location, setLocation] = useState("");
+  const [cropType, setCropType] = useState("");
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
+  const handleCropTypeChange = (e) => {
+    setCropType(e.target.value);
+  };
+
   return (
     <>
-      <Header />  
+      <Header />
       <main>
         {/* Hero Section */}
         <section className="hero">
@@ -42,56 +53,58 @@ const Page = () => {
           </div>
         </section>
 
-        {/*Product Listing Section*/}
-    <section id="product-listing">
-        <h2>Available Products</h2>
-        <div class="product-grid" id="productGrid">
-            {/* Product Item*/}
+        {/* Product Listing Section */}
+        <section id="product-listing">
+          <h2>Available Products</h2>
 
-            <div class="product-item" data-type="vegetables">
-                <img src="tomato.jpg" alt="Tomato"/>
-                <h3>Tomatoes</h3>
-                <p>Quantity Available: 200 kg</p>
-                <p>Fresh organic tomatoes from local farms.</p>
-                <button class="btn-know-more">Add To Cart</button>
+          {/* Filters Section */}
+          <div className="filters">
+            <label htmlFor="location">Location:</label>
+            <select id="location" value={location} onChange={handleLocationChange}>
+              <option value="">Select Location</option>
+              <option value="location1">Location 1</option>
+              <option value="location2">Location 2</option>
+              <option value="location3">Location 3</option>
+            </select>
+
+            <label htmlFor="cropType">Crop Type:</label>
+            <select id="cropType" value={cropType} onChange={handleCropTypeChange}>
+              <option value="">Select Crop Type</option>
+              <option value="vegetables">Vegetables</option>
+              <option value="fruits">Fruits</option>
+              <option value="grains">Grains</option>
+            </select>
+          </div>
+
+          <div className="product-grid" id="productGrid">
+            {/* Product Item */}
+            <div className="product-item" data-type="vegetables">
+              <img src="tomato.jpg" alt="Tomato" />
+              <h3>Tomatoes</h3>
+              <p>Quantity Available: 200 kg</p>
+              <p>Fresh organic tomatoes from local farms.</p>
+              <button className="btn-know-more">Add To Cart</button>
             </div>
-            <div class="product-item" data-type="fruits">
-                <img src="apple.jpg" alt="Apple"/>
-                <h3>Apples</h3>
-                <p>Quantity Available: 150 kg</p>
-                <p>Juicy and fresh apples harvested from orchards.</p>
-                <button class="btn-know-more">Add To Cart</button>
+            <div className="product-item" data-type="fruits">
+              <img src="apple.jpg" alt="Apple" />
+              <h3>Apples</h3>
+              <p>Quantity Available: 150 kg</p>
+              <p>Juicy and fresh apples harvested from orchards.</p>
+              <button className="btn-know-more">Add To Cart</button>
             </div>
-            <div class="product-item" data-type="grains">
-                <img src="rice.jpg" alt="Rice"/>
-                <h3>Rice</h3>
-                <p>Quantity Available: 500 kg</p>
-                <p>High-quality grains of rice, perfect for your meals.</p>
-                <button class="btn-know-more">Add To Cart</button>
+            <div className="product-item" data-type="grains">
+              <img src="rice.jpg" alt="Rice" />
+              <h3>Rice</h3>
+              <p>Quantity Available: 500 kg</p>
+              <p>High-quality grains of rice, perfect for your meals.</p>
+              <button className="btn-know-more">Add To Cart</button>
             </div>
-            <div class="product-item" data-type="fruits">
-                <img src="tomato.jpg" alt="Tomato"/>
-                <h3>Tomatoes</h3>
-                <p>Quantity Available: 200 kg</p>
-                <p>Fresh organic tomatoes from local farms.</p>
-                <button class="btn-know-more">Add To Cart</button>
-            </div>
-            <div class="product-item" data-type="fruits">
-                <img src="apple.jpg" alt="Apple"/>
-                <h3>Apples</h3>
-                <p>Quantity Available: 150 kg</p>
-                <p>Juicy and fresh apples harvested from orchards.</p>
-                <button class="btn-know-more">Add To Cart</button>
-            </div>
-           
-            {/*} Add more product items below*/}
-        </div>
-    </section>
+          </div>
+        </section>
 
         {/* Footer */}
         <footer>
           <div className="foot-pannel-1">Back to Top</div>
-
           <div className="foot-pannel-2">
             <div>
               <p>Get to Know Us</p>
@@ -101,7 +114,6 @@ const Page = () => {
                 <li><a href="#about">About</a></li>
               </ul>
             </div>
-
             <div>
               <p>Connect with Us</p>
               <ul>
@@ -110,7 +122,6 @@ const Page = () => {
                 <li><a href="#instagram">Instagram</a></li>
               </ul>
             </div>
-
             <div>
               <p>Payment Products</p>
               <ul>
@@ -119,7 +130,6 @@ const Page = () => {
               </ul>
             </div>
           </div>
-
           <div className="foot-pannel-4">
             <div className="pages">
               <a href="#conditions">Condition of Use</a>
@@ -136,4 +146,3 @@ const Page = () => {
 };
 
 export default Page;
-
