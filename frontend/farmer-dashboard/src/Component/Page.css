@@ -50,10 +50,11 @@
   
   /* Hero Section */
   .hero {
-    background-image: url('https://source.unsplash.com/1600x900/?farm,field');
+    background-image: url('C:\Users\HP\Desktop\major11\hero-farmer.webp');
     background-size: cover;
     background-position: center;
     color: #fff;
+    height: 400px;
     padding: 80px 20px;
     text-align: center;
   }
@@ -275,4 +276,29 @@
       align-items: center;
     }
   }
+  
+  .filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .filters label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .filters select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: all 0.3s ease;
+  }
+  
+  .filters select:focus {
+    border-color: #333;
+  }
+  
   
