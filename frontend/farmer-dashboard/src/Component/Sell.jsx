@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Header from './Header'; // Adjust the path if needed
+import Header from './Header';
+import Footer from "./Footer"; // Adjust the path if needed
 import "./Sell.css";
 
 const Sell = () => {
@@ -114,6 +115,7 @@ const Sell = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

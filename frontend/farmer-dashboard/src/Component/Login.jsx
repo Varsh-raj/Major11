@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import "./Login.css"; // CSS file for styling
 
 const Login = () => {
@@ -23,9 +24,9 @@ const Login = () => {
     }
   };
 
-  return (
-    <>
-      <Header />
+return (
+  <>
+    <Header />
     <div className="login-container">
       <h2>Login</h2>
       <div className="form-group">
@@ -57,8 +58,9 @@ const Login = () => {
         <a href="/register" className="register-link">Register here</a>
       </p>
     </div>
-    </>
-  );
+    <Footer /> {/* Add Footer component here */}
+  </>
+);
 };
 
 export default Login;

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import "./Profile.css"; // Import the CSS file for styling
 
 const Profile = () => {
@@ -58,6 +59,7 @@ const Profile = () => {
         <button className="sell-here-button">Sell Here</button>
       </div>
     </div>
+    < Footer/>
     </>
   );
 };

@@ -50,10 +50,11 @@
   
   /* Hero Section */
   .hero {
-    background-image: url('https://source.unsplash.com/1600x900/?farm,field');
+    background-image: url('C:\Users\HP\Desktop\major11\hero-farmer.webp');
     background-size: cover;
     background-position: center;
     color: #fff;
+    height: 400px;
     padding: 80px 20px;
     text-align: center;
   }

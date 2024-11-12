@@ -6,14 +6,15 @@ import './index.css';
 //import Cart from './Component/Cart';
 //import Singleprod from './Component/Singleprod';
 // import Registration from './Component/Registration';
-//import Sell from './Component/Sell';
-import Login from './Component/Login';
+import Sell from './Component/Sell';
+//import Login from './Component/Login';
+//import Footer from './Component/Footer';
 // import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Login/>
+    <Sell/>
   </React.StrictMode>
 );

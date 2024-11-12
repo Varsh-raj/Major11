@@ -1,6 +1,7 @@
 // Registration.jsx
 import React, { useState } from 'react';
 import Header from "./Header";
+import Footer from "./Footer";
 import './Registration.css'; // Import the CSS file
 
 const Registration = () => {
@@ -121,6 +122,7 @@ const Registration = () => {
         <button type="submit" className="btn-register">Register</button>
       </form>
     </section>
+    <Footer/>
     </>
   );
 };
