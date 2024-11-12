@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "./Header";
+//import Header from "./Header";
 import Footer from "./Footer";
 import "./Page.css"; // Consolidated CSS file for all components
 
@@ -17,8 +17,6 @@ const Page = () => {
 
   return (
     <>
- 
-
       <main>
         {/* Hero Section */}
         <section className="hero">
