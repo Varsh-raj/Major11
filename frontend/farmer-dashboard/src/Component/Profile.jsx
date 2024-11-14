@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import "./Profile.css"; // Import the CSS file for styling
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   // Example user data
@@ -55,9 +56,13 @@ const Profile = () => {
       </div>
 
       <div className="profile-actions">
-        <button className="edit-profile-button">Edit Profile</button>
-        <button className="sell-here-button">Sell Here</button>
+        <button className="edit-profile-button"><Link to="/editprof">Edit Profile</Link></button>
+        <button className="sell-here-button"><Link to="/sell">Sell Here</Link></button>
       </div>
+      <nav className="nav-links">
+        <Link to="/sell">Sell</Link>
+        <Link to="/editprof">Edit Profile</Link>
+      </nav>
     </div>
     < Footer/>
     </>

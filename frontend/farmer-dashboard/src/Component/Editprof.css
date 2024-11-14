@@ -1,0 +1,89 @@
+/* Container styling */
+.edit-profile {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .edit-profile h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 24px;
+  }
+  
+  /* Form field styling */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="tel"],
+  .form-group input[type="url"],
+  .form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input[type="text"]:focus,
+  .form-group input[type="tel"]:focus,
+  .form-group input[type="url"]:focus,
+  .form-group select:focus {
+    border-color: #6c63ff;
+    outline: none;
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c63ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #5549c9;
+  }
+  
+  /* Add responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .edit-profile {
+      padding: 1rem;
+    }
+  
+    .edit-profile h2 {
+      font-size: 20px;
+    }
+  
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group select,
+    button[type="submit"] {
+      font-size: 14px;
+      padding: 0.5rem;
+    }
+  }
+  
