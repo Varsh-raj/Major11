@@ -42,7 +42,7 @@ connectDB();
 
 // Initialize Express app
 const app = express();
-
+app.use(cors({ origin: 'http://localhost:3001' })); 
 // Middleware to serve static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
