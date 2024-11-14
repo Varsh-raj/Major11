@@ -29,7 +29,10 @@ import Profile from './Component/Profile';
 import Login from './Login/Login';
 import Signup from './Login/Signup';
 import ProtectedRoute from './Login/ProtectedRoute';
+import EditProfile from './Component/Editprof';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Editprof from './Component/Editprof';
+import Sell from './Component/Sell';
 
 function App() {
   return (
@@ -53,6 +56,25 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+      
+
+      <Route
+          path="/editprof"
+          element={
+            <ProtectedRoute>
+              <Editprof/>
+            </ProtectedRoute>
+          }
+        />
+
+      <Route
+          path="/sell"
+          element={
+            <ProtectedRoute>
+             <Sell/>
             </ProtectedRoute>
           }
         />
