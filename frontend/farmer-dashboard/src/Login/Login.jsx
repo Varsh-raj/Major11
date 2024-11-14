@@ -10,6 +10,7 @@ const Login = () => {
   });
 
   const { login } = useContext(AuthContext);
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,7 +27,7 @@ const Login = () => {
     const { email, password } = formData;
 
     try {
-      const response = await fetch('http://localhost:3000/college/login', {
+      const response = await fetch('http://localhost:3000/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

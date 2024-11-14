@@ -25,7 +25,7 @@ const SignUp = () => {
     const { name, email, password } = formData;
 
     try {
-      const response = await fetch('http://localhost:3000/college/register', {
+      const response = await fetch('http://localhost:3000/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ const SignUp = () => {
       const data = await response.json();
       alert('Registration successful!');
       login(data.token, data.user);
-      navigate('/login');
+      navigate('/');
     } catch (error) {
       console.error('Error:', error);
       alert('An error occurred. Please try again later.');
