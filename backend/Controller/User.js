@@ -113,6 +113,23 @@ const deleteProfile = async (req, res) => {
     res.status(500).json({ msg: 'Server error' });
   }
 };
+// User Profile Retrieval Handler
+const getUserProfile = async (req, res) => {
+  try {
+    const userId = req.user.objId; // Get user ID from decoded JWT
+
+    const user = await User.findById(userId).select('-password'); 
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    res.json(user); // Send user data as JSON response
+  } catch (error) {
+    console.error("Error in getUserProfile:", error);
+    res.status(500).json({ msg: 'Server error' });
+  }
+};
+
 
 // Export functions
 module.exports = {
@@ -120,4 +137,5 @@ module.exports = {
     handleUserRegistration,
     updateProfile,
     deleteProfile,
+    getUserProfile
 };
