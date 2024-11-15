@@ -55,7 +55,7 @@ const Profile = () => {
           <p>{user.name}</p>
         </div>
         <div className="profile-item">
-          <strong>Mobile Number:</strong>
+          <strong>Contact:</strong>
           <p>{user.phone}</p>
         </div>
         <div className="profile-item">
