@@ -59,10 +59,7 @@ const Profile = () => {
         <button className="edit-profile-button"><Link to="/editprof">Edit Profile</Link></button>
         <button className="sell-here-button"><Link to="/sell">Sell Here</Link></button>
       </div>
-      <nav className="nav-links">
-        <Link to="/sell">Sell</Link>
-        <Link to="/editprof">Edit Profile</Link>
-      </nav>
+     
     </div>
     < Footer/>
     </>
