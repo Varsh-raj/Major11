@@ -2,26 +2,50 @@ import React, { useState } from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 import './Editprof.css';
+import axios from 'axios';
 
 function Editprof() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [farmingType, setFarmingType] = useState('');
-  const [profilePic, setProfilePic] = useState(null);
+  const [Bio, setBio] = useState('');
+  const [Address, setAddress] = useState('');
+  const [profile, setProfile] = useState(null);
+//  we have another methode to store data  by only one state that is  const [form, setForm] 
 
   const handleFileChange = (e) => {
-    setProfilePic(e.target.files[0]);
+    setProfile(e.target.files[0]);
   };
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    
-    // Here you would typically send the updated data to your backend API
-    const updatedProfile = { name, phone, farmingType, profilePic };
-    console.log('Profile Updated:', updatedProfile);
-
-    alert('Profile successfully updated!');
-    // Reset form or redirect to another page if needed
+    const token = localStorage.getItem('authToken');
+    console.log("Token retrieved:", token);
+    const formData = new FormData();
+      formData.append('name', name);
+      formData.append('phone', phone);
+      formData.append('Address', Address);
+      formData.append('Bio', Bio);
+      if (profile) {
+        formData.append('profile', profile);
+      }
+     
+    try {
+     
+      const response = await axios.put('http://localhost:3000/user/update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'x-auth-token': `Bearer ${token}`,
+        },
+      });
+      const updatedProfile = { name, phone , profile , Address , Bio };
+      console.log('Profile Updated update :', updatedProfile);
+      console.log('Profile Updated:', response.data);
+      alert('Profile successfully updated!');
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      alert('Failed to update profile. Please try again.');
+    }
+  
   };
 
   return (
@@ -59,27 +83,36 @@ function Editprof() {
 
         {/* Farming Type Field */}
         <div className="form-group">
-          <label htmlFor="farmingType">Farming Type:</label>
-          <select
-            id="farmingType"
-            value={farmingType}
-            onChange={(e) => setFarmingType(e.target.value)}
+          <label htmlFor="Bio">Details:</label>
+          <input
+            type="text"
+            id="Bio"
+            value={Bio}
+            onChange={(e) => setBio(e.target.value)}
+            placeholder="Enter some more information "
             required
-          >
-            <option value="">Select farming type</option>
-            <option value="vegetable">Vegetable Farming</option>
-            <option value="fruit">Fruit Farming</option>
-            <option value="grain">Grain Farming</option>
-            <option value="dairy">Dairy Farming</option>
-          </select>
+          />
+        </div>
+  {/*  address */}
+
+  <div className="form-group">
+          <label htmlFor="Address">Address:</label>
+          <input
+            type="text"
+            id="Address"
+            value={Address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Enter some more information "
+            required
+          />
         </div>
 
         {/* Profile Picture Upload Field */}
         <div className="form-group">
-          <label htmlFor="profilePic">Profile Picture:</label>
+          <label htmlFor="profile">Profile Picture:</label>
           <input
             type="file"
-            id="profilePic"
+            id="profile"
             accept="image/*"
             onChange={handleFileChange}
           />
