@@ -118,8 +118,9 @@ const deleteProfile = async (req, res) => {
 const getUserProfile = async (req, res) => {
   try {
     const userId = req.user.objId; // Get user ID from decoded JWT
-
+ 
     const user = await User.findById(userId).select('-password'); // Exclude password from response
+ 
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
     }
@@ -129,13 +130,11 @@ const getUserProfile = async (req, res) => {
     console.error("Error in getUserProfile:", error);
     res.status(500).json({ msg: 'Server error' });
   }
-};
-
+}; 
 // Export functions
 module.exports = {
     handleUserLogin,
     handleUserRegistration,
     updateProfile,
     deleteProfile,
-    getUserProfile 
-};
+    getUserProfile };
