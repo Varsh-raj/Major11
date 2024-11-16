@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
+ 
 import "./Cart.css";
 
 const Cart = ({ initialCart }) => {
@@ -35,7 +35,7 @@ const Cart = ({ initialCart }) => {
 
   return (
     <>
-      <Header />
+     
     <div className="cart-container">
       <h2>Your Cart</h2>
       <div className="cart-items">
