@@ -65,7 +65,7 @@ const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
   const token = req.header('x-auth-token')?.split(' ')[1];  // Extract the token from 'Bearer <token>'
- // console.log('Token received:', token);
+  console.log('Token received:', token);
 
   if (!token) {
     console.error('No token provided');

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const upload = require('../Middleware/Upload');
 const { check, validationResult } = require('express-validator');
 const auth = require('../Middleware/Auth');
-const { handleUserLogin, handleUserRegistration , updateProfile , deleteProfile } = require('../Controller/User');
+const { handleUserLogin, handleUserRegistration , updateProfile , deleteProfile ,getUserProfile  } = require('../Controller/User');
 const productController = require('../Controller/Product');
 //login -signup
 router.post("/login", handleUserLogin);
@@ -18,7 +18,7 @@ router.put('/update', auth,upload.single('profile'), updateProfile);
 
 router.delete('/deleteProfile', auth, deleteProfile);
 
-
+router.get('/getprofile', auth, getUserProfile); 
 
 
 router.post('/add', auth, upload.single('image'), productController.addProduct);
